@@ -8,6 +8,9 @@ public class Main {
         tree.insert(8);
         tree.insert(5);
         tree.insert(11);
-        System.out.println(tree.contains(10));
+        tree.rInsert(9);
+        tree.deleteNode(8);
+        System.out.println(tree.rContains(10));
+
     }
 }
