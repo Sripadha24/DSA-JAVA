@@ -1,5 +1,7 @@
 package Trees;
 
+import java.util.*;
+
 public class BinarySearchTree {
     class Node{
         private int value;
@@ -112,6 +114,74 @@ public class BinarySearchTree {
         }
         return temp.value;
 
+    }
+    public ArrayList<Integer> Bfs(){
+        Node currentNode = root;
+        Queue<Node> queue = new LinkedList<>();
+        ArrayList<Integer> list = new ArrayList<>();
+        queue.add(currentNode);
+        while(queue.size() > 0){
+            currentNode = queue.remove();
+            list.add(currentNode.value);
+            if(currentNode.left != null){
+                queue.add(currentNode.left);
+            }
+            if(currentNode.right != null){
+                queue.add(currentNode.right);
+            }
+        }
+        return list;
+    }
+    public ArrayList<Integer> Dfspreorder(){
+        ArrayList<Integer> list = new ArrayList<>();
+        class Traverse{
+            Traverse(Node currentNode){
+                list.add(currentNode.value);
+                if(currentNode.left != null){
+                    new Traverse(currentNode.left);
+                }
+                if(currentNode.right != null){
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+        new Traverse(root);
+        return list;
+    }
+    public ArrayList<Integer> Dfspostorder(){
+        ArrayList<Integer> list = new ArrayList<>();
+        class Traverse{
+            Traverse(Node currentNode){
+
+                if(currentNode.left != null){
+                    new Traverse(currentNode.left);
+                }
+                if(currentNode.right != null){
+                    new Traverse(currentNode.right);
+                }
+                list.add(currentNode.value);
+            }
+        }
+        new Traverse(root);
+        return list;
+    }
+    public ArrayList<Integer> Dfsinorder(){
+        ArrayList<Integer> list = new ArrayList<>();
+        class Traverse{
+            Traverse(Node currentNode){
+
+                if(currentNode.left != null){
+                    new Traverse(currentNode.left);
+                }
+                list.add(currentNode.value);
+                if(currentNode.right != null){
+                    new Traverse(currentNode.right);
+                }
+
+            }
+        }
+        new Traverse(root);
+        return list;
     }
 
 

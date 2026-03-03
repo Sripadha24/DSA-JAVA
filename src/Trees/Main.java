@@ -11,6 +11,10 @@ public class Main {
         tree.rInsert(9);
         tree.deleteNode(8);
         System.out.println(tree.rContains(10));
+        System.out.println(tree.Bfs());
+        System.out.println(tree.Dfspreorder());
+        System.out.println(tree.Dfspostorder());
+        System.out.println(tree.Dfsinorder());
 
     }
 }
